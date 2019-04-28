@@ -1,22 +1,28 @@
 import React, { FC } from "react";
+import { Helmet } from "react-helmet";
 import { Redirect, Route, Switch } from "react-router";
-import "./App.css";
-import TimerContainer from "./containers/Timer";
-import Home from "./components/Home/";
-import Characters from "./components/Characters/";
-// import CharacterList, { Character } from "./CharacterList";
-// import Counter from "./Counter";
-// import Timer from "./Timer";
-// import { Counter as HookCounter } from "./HookCounter";
-// import { Timer as HookTimer } from "./HookTimer";
-import Counter from "./containers/Counter";
-import ColorfulBeads from "./containers/ColorfulBeads";
 
+import Home from "./components/Home/";
+import Members from "./containers/Members";
+
+import "./App.css";
+
+const title = "Members";
 const App: FC<{}> = () => (
-  <div className="container">
-    <Counter />
-    <ColorfulBeads />
-  </div>
+  <>
+    <Helmet htmlAttributes={{ lang: "ja" }}>
+      <title>{title}</title>
+    </Helmet>
+
+    <header className="App-header">
+      <h1>{title}</h1>
+    </header>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/:companyName/members" component={Members} />
+      <Redirect to="/" />
+    </Switch>
+  </>
 );
 
 // class App extends Component {
