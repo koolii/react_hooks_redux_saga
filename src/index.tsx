@@ -1,20 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+
 import App from "./App";
+import counterReducer, { initialState } from "./reducer";
 import * as serviceWorker from "./serviceWorker";
 
 import "./index.css";
 import "./styles/semantic.min.css";
 
+const store = createStore(counterReducer, initialState);
+
 // <BrowserRouter>を使うと、これより下の階層でHTML5のHistoryAPIを
 // 利用した機能が使えるようになる
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <App />
-  </BrowserRouter>,
-  document.getElementById("root")
+  </Provider>,
+  document.getElementById("root") as HTMLElement
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -9,15 +9,13 @@ import Characters from "./components/Characters/";
 // import Timer from "./Timer";
 // import { Counter as HookCounter } from "./HookCounter";
 // import { Timer as HookTimer } from "./HookTimer";
+import Counter from "./containers/Counter";
+import ColorfulBeads from "./containers/ColorfulBeads";
 
 const App: FC<{}> = () => (
   <div className="container">
-    <Switch>
-      <Route path="/characters/:code" component={Characters} />
-      <Route path="/timer" component={TimerContainer} />
-      <Route path="/" component={Home} />
-      <Redirect to="/" />
-    </Switch>
+    <Counter />
+    <ColorfulBeads />
   </div>
 );
 
