@@ -59,6 +59,12 @@ module.exports = {
     indent: 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: '[Rr]eact'
+      }
+    ],
 
     // prefer-arrow
     'prefer-arrow/prefer-arrow-functions': [
@@ -95,6 +101,17 @@ module.exports = {
         jsx: 'never',
         ts: 'never',
         tsx: 'never'
+      }
+    ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '.storybook/**',
+          'stories/**',
+          '**/*/*.story.*',
+          '**/*/*.stories.*'
+        ]
       }
     ],
     'import/prefer-default-export': 'off',
