@@ -39,8 +39,7 @@ const Home: FC<{}> = () => (
         </List.Item>
       ))}
     </List>
-    <h2>Redux Saga</h2>{" "}
-    <Link to={`/facebook/members`}>example => Facebook's members</Link>{" "}
+    <h2>Redux Saga</h2> <Link to="/facebook/members">Facebook members</Link>{" "}
   </>
 );
 
